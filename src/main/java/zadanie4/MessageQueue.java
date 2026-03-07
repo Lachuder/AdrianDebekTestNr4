@@ -1,3 +1,5 @@
+package zadanie4;
+
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 
@@ -18,7 +20,7 @@ public class MessageQueue {
 
     /**
      * metoda pobierająca najstarszy element/wiadomość z kolejki
-     * rzuca wyjątek przerwania, gdy oczekiwanie zostanie naruszone*/
+     * rzuca wyjątek przerwania, gdy oczekiwanie na zasób zostanie przerwane*/
     public String take() throws InterruptedException {
         return queue.take();
     }
