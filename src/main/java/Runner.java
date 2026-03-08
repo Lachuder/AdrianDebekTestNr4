@@ -1,7 +1,5 @@
-import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
 
 public class Runner {
 
@@ -21,13 +19,8 @@ public class Runner {
 
         executor.shutdown();
 
-//        List<PrinterThread> threadList = List.of(t1, t2, t3, t4);
-//
-//        for (int i = 0; i < threadList.size(); i++) {
-//            Thread.sleep(3000);
-//            executor.submit(threadList.get(i));
-//        }
-
     }
+
+
 
 }
