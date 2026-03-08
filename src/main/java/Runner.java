@@ -10,7 +10,7 @@ public class Runner {
         peopleFromWarsaw.add(new Person("WeronikA","Warsaw", 20));
 //        peopleFromWarsaw.add(new Person("Waldek", "Monaco", 34));
         peopleFromWarsaw.add(new Person("MonikA","Warsaw", 60));
-        peopleFromWarsaw.add(null);
+//        peopleFromWarsaw.add(null);
 
         for (Person p : peopleFromWarsaw) {
             System.out.println(p);
