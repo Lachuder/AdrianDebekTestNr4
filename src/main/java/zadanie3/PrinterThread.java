@@ -1,3 +1,5 @@
+package zadanie3;
+
 import java.util.concurrent.Callable;
 
 public class PrinterThread implements Callable<Void> {
