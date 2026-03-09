@@ -1,3 +1,5 @@
+package zadanie2;
+
 import java.util.Objects;
 
 public class Person {

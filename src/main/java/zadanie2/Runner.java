@@ -1,3 +1,5 @@
+package zadanie2;
+
 import java.util.List;
 
 public class Runner {
