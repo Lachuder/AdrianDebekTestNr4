@@ -110,22 +110,18 @@ public class StringContainer implements Iterable<String> {
             throw new RuntimeException("Index above max");
         }
 
-//        if (index == 0) {
-//            first = first.next;
-//        } else {
-//            Node temp = first;
-//        }
-
-        int counter = 0;
-
-        Iterator<String> iter = iterator();
-        while (iter.hasNext() && counter < index) {
-            String next = iter.next();
-            counter++;
-            if (counter == index) {
-                iter.remove();
+        if (index == 0) {
+            first = first.next;
+        } else {
+            Node current = first;
+            int counter = 0;
+            while (counter < index - 1) {
+                current = current.next;
+                counter++;
             }
+            current.next = current.next.next;
         }
+        size--;
     }
 
     public void remove(String object) {
