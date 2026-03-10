@@ -1,4 +1,6 @@
-package zadanie4;
+package zadanie4.models;
+
+import zadanie4.appbody.Port;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,9 +18,10 @@ public class Publisher {
     public void start() throws IOException {
 
         Socket socket = new Socket("localhost", port.getPort()); //tworzymy połączenie o tych samych parametrach co serwer
+        System.out.println("socket = " + socket);
 
         PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true); //wrapper do strumienia danych przesyłanych przez socket
-        printWriter.println("WRITE MESSAGE"); //intro dla użytkownika
+        printWriter.println("PUBLISHER"); //informacja dla Connection Holdera, jaka rola została podłączona
 
         Scanner scanner = new Scanner(System.in);
 

@@ -1,5 +1,9 @@
 package zadanie4;
 
+import zadanie4.models.Consumer;
+import zadanie4.models.Publisher;
+import zadanie4.models.Server;
+
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -9,14 +13,23 @@ public class App {
 
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Wybierz jedną z ról: server | publisher | consumer");
+        System.out.println("Wybierz jedną z ról: SERVER | PUBLISHER | CONSUMER");
 
         String result = scanner.nextLine();
 
         switch (result) {
-            case "server" -> new Server().start();
-            case "publisher" -> new Publisher().start();
-            case "consumer" -> new Consumer().start();
+            case "SERVER" -> {
+                new Server().start();
+                scanner.close();
+            }
+            case "PUBLISHER" -> {
+                new Publisher().start();
+                scanner.close();
+            }
+            case "CONSUMER" -> {
+                new Consumer().start();
+                scanner.close();
+            }
         }
 
     }

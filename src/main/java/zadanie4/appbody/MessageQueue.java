@@ -1,4 +1,4 @@
-package zadanie4;
+package zadanie4.appbody;
 
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.LinkedBlockingQueue;
@@ -10,7 +10,7 @@ public class MessageQueue {
     /**
      * kolejka w bezpiecznej wielowątkowo implementacji (LinkedBlockingQueue - operacje mogą czekać) przechowująca
      * kolejno dodawane elementy/wiadomości*/
-    private final BlockingQueue<String> queue = new LinkedBlockingQueue<String>();
+    private final BlockingQueue<String> queue = new LinkedBlockingQueue<>();
 
     /**
      * metoda dodająca element/wiadomość do kolejki*/

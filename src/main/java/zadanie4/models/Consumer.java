@@ -1,4 +1,6 @@
-package zadanie4;
+package zadanie4.models;
+
+import zadanie4.appbody.Port;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,11 +19,11 @@ public class Consumer {
      * metoda uruchamiająca połączenie */
     public void start() throws IOException {
 
-        Socket socket = new Socket("localHost", port.getPort());
+        Socket socket = new Socket("localhost", port.getPort());
 
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(socket.getInputStream())); //wrapper do strumienia danych przesyłanych przez socket
         PrintWriter printWriter = new PrintWriter(socket.getOutputStream(), true);
-        printWriter.println("NEW MESSAGES"); //intro dla użytkownika
+        printWriter.println("CONSUMER"); //informacja dla Connection Holdera, jaka rola została podłączona
 
         String message;
         while ((message = bufferedReader.readLine()) != null) {

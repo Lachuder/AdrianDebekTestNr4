@@ -1,4 +1,6 @@
-package zadanie4;
+package zadanie4.appbody;
+
+import zadanie4.models.Server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,9 +25,9 @@ public class ConnectionHolder implements Runnable {
         try {
             String type = in.readLine();
 
-            if (type.equals("SUB")) {
-                handleSubscriber();
-            } else if (type.equals("PUB")) {
+            if (type.equals("CONSUMER")) {
+                handleConsumer();
+            } else if (type.equals("PUBLISHER")) {
                 handlePublisher();
             }
 
@@ -34,25 +36,31 @@ public class ConnectionHolder implements Runnable {
         }
     }
 
-    private void handleSubscriber() throws Exception {
+    private void handleConsumer() throws Exception {
         System.out.println("Consumer podłączony");
 
-        // wysyłanie backlogu + przyszłych wiadomości
-        while (true) {
-            String msg = Server.messageQueue.take();
-            out.println(msg);
-        }
+        Server.consumers.add(this);
+
+        String message = Server.messageQueue.take();
+        System.out.println("Odebrano: " + message);
+        out.println(message);
+
     }
 
     private void handlePublisher() throws Exception {
         String message;
         while ((message = in.readLine()) != null) {
 
-            System.out.println("Odebrano od PUB: " + message);
+            System.out.println("Wysłano: " + message);
 
-            // dodaj do kolejki
-            Server.messageQueue.add(message);
+            for(ConnectionHolder consumer : Server.consumers){
+                consumer.send(message);
+            }
         }
+    }
+
+    public void send(String msg) {
+        out.println(msg);
     }
 }
 
